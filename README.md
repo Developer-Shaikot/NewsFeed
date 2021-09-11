@@ -1,4 +1,4 @@
-# News-Fedd React App
+# News-Feed React App
 
 • Live-site-link : https://news-feed-f451b.web.app/
 
