@@ -14,7 +14,7 @@ import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import News from '../News/News';
-
+import FeedBackForm from '../FeedBackForm/FeedBackForm'
 
 
 
@@ -54,6 +54,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Slider(props) {
+
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+
 const [news, setNews] = useState([]);
 
 useEffect(() => {
@@ -89,7 +104,8 @@ useEffect(() => {
       <div  className="Feedback">
       <h3>Have A Feedback</h3>
       <br />
-      <Button variant="contained" color="secondary" href="#contained-buttons">Click Here</Button>
+      <Button onClick={openModal} variant="contained" color="secondary">Click Here</Button>
+      <FeedBackForm modalIsOpen={modalIsOpen} closeModal={closeModal}></FeedBackForm>
       <br />
       </div>
     </div>
@@ -135,7 +151,7 @@ useEffect(() => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography >
-         <div>
+         <div className="App">
            <h1>News-{news.length}</h1>
            {
              news.map(news => <News news={news}></News>)

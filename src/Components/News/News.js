@@ -13,11 +13,11 @@ const News = (props) => {
         marginLeft: '95%'
     }
     return (
-        <div style={newsStyle}> 
+        <div className="App" style={newsStyle}> 
             <div style={clearStyle}>
             <ClearIcon></ClearIcon>
             </div>
-           <h2>{title}</h2>
+           <h2 >{title}</h2>
            <p>{body}</p>
         </div>
     );

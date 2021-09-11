@@ -42,9 +42,9 @@ export default function VerticalNews(props) {
  
 
   return (
-    <div className="col-md-3" >
-        <Card style={cardStyle}>
-      <CardHeader
+    <div  className="col-md-3" >
+        <Card  style={cardStyle}>
+      <CardHeader 
       
         action={
           <ClearIcon>

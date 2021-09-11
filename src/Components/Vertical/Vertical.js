@@ -14,6 +14,7 @@ import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import VerticalNews from '../VerticalNews/VerticalNews';
+import FeedBackForm from '../FeedBackForm/FeedBackForm';
 
 
 
@@ -55,6 +56,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Vertical(props) {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+
 const [vnews, setVnews] = useState([]);
 
 useEffect(() => {
@@ -90,7 +105,8 @@ useEffect(() => {
       <div  className="Feedback">
       <h3>Have A Feedback</h3>
       <br />
-      <Button variant="contained" color="secondary" href="#contained-buttons">Click Here</Button>
+      <Button  onClick={openModal} variant="contained" color="secondary">Click Here</Button>
+      <FeedBackForm modalIsOpen={modalIsOpen} closeModal={closeModal}></FeedBackForm>
       <br />
       </div>
     </div>
@@ -137,9 +153,9 @@ useEffect(() => {
         <div className={classes.toolbar} />
         <Typography >
          <div className="row d-flex align-items-center">
-           <h1>News-{vnews.length}</h1>
+           <h1 className="App">News-{vnews.length}</h1>
            {
-             vnews.map(vnews => <VerticalNews vnews={vnews}></VerticalNews>)
+             vnews.map(vnews => <VerticalNews  vnews={vnews}></VerticalNews>)
            }
          </div>
         </Typography>
